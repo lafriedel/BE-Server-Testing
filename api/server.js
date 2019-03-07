@@ -8,7 +8,7 @@ server.use(helmet());
 server.use(cors());
 server.use(express.json());
 
-server.get('/', (req, res) => {
+server.get('/', async (req, res) => {
     res.status(200).json({message: "Welcome to the Bjork Album Database!"})
 })
 
