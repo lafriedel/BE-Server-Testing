@@ -16,8 +16,9 @@ describe('insertAlbum()', () => {
 
 describe('removeAlbum()', () => {
     it('deletes appropriate album from the db', async () => {
-        let album = await Albums.removeAlbum(1);
+        let album = await Albums.insertAlbum({name: "Utopia", release_year: 2017})
+        let deleted = await Albums.removeAlbum(album.id);
 
-        expect(album).toBe(0);
+        expect(deleted).toBe(1);
     })
 })

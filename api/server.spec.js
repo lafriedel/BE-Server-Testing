@@ -45,7 +45,7 @@ describe('server.js', () => {
         })
     })
 
-    describe('DELETE /api/albums', () => {
+    describe('DELETE /api/albums/:id', () => {
         it('returns 204 No Content', async () => {
             const res = await request(server).delete("/api/albums/:id");
             expect(res.status).toBe(204);
