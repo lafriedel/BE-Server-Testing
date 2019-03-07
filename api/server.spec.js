@@ -51,5 +51,10 @@ describe('server.js', () => {
             expect(res.status).toBe(204);
         })
 
+        it('returns nothing', async () => {
+            const res = await request(server).delete("/api/albums/:id");
+            expect(res.type).toBeFalsy();
+        })
+
     })
 })
