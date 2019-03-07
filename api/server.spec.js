@@ -27,16 +27,16 @@ describe('server.js', () => {
     })
 
     describe('POST /api/albums', () => {
-        it.skip('returns 201 Created', () => {
-
+        it('returns 201 Created', async () => {
+            const res = await request(server).post('/api/albums').send({name: "Volta", release_year: 2007});
+            
+            expect(res.status).toBe(201);
         })
 
-        it.skip('returns JSON', () => {
+        it('returns JSON', async () => {
+            const res = await request(server).post('/api/albums');
 
-        })
-
-        it.skip('inserts the provided album into the db', () => {
-
+            expect(res.type).toBe('application/json');
         })
     })
 
@@ -45,8 +45,5 @@ describe('server.js', () => {
 
         })
 
-        it.skip('deletes appropriate album from the db', () => {
-
-        })
     })
 })
