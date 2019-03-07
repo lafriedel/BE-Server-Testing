@@ -1,5 +1,10 @@
 const request = require('supertest');
 const server = require('./server');
+const db = require('../data/dbConfig');
+
+afterEach(async () => {
+    await db("albums").truncate();
+})
 
 describe('server.js', () => {
     it('should set testing environment', () => {
@@ -41,8 +46,9 @@ describe('server.js', () => {
     })
 
     describe('DELETE /api/albums', () => {
-        it.skip('returns 204 No Content', () => {
-
+        it('returns 204 No Content', async () => {
+            const res = await request(server).delete("/api/albums/:id");
+            expect(res.status).toBe(204);
         })
 
     })

@@ -13,7 +13,7 @@ async function insertAlbum(album) {
 }
 
 function removeAlbum(id) {
-    return db("albums").del(id);
+    return db("albums").where({id}).del();
 }
 
 function getAlbums() {

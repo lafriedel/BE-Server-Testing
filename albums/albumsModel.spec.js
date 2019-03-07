@@ -1,27 +1,23 @@
 const db = require('../data/dbConfig');
 const Albums = require('./albumsModel');
 
+afterEach(async () => {
+    await db("albums").truncate()
+})
+
 describe('insertAlbum()', () => {
-
-    afterEach(async () => {
-        await db("albums").truncate();
-    })
-
     it('inserts the provided album into the db', async () => {
-        let album = await Albums.insertAlbum({name: "Volta", release_year: 2001});
+        let album = await Albums.insertAlbum({name: "Vulnicura", release_year: 2015});
 
-        expect(album.name).toBe("Volta");
-        expect(album.release_year).toEqual(2001);
+        expect(album.name).toBe("Vulnicura");
+        expect(album.release_year).toEqual(2015);
     })
 })
 
 describe('removeAlbum()', () => {
+    it('deletes appropriate album from the db', async () => {
+        let album = await Albums.removeAlbum(1);
 
-    afterEach(async () => {
-        await db("albums").truncate();
-    })
-
-    it.skip('deletes appropriate album from the db', () => {
-
+        expect(album).toBe(0);
     })
 })

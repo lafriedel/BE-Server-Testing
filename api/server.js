@@ -32,4 +32,13 @@ server.post('/api/albums', async (req, res) => {
     }
 })
 
+server.delete("/api/albums/:id", async (req, res) => {
+    try {
+        await Albums.removeAlbum(req.params.id)
+        res.status(204).end();
+
+    } catch(error) {
+        res.status(500).json({error: "There was an error"})
+    }
+})
 module.exports = server;
