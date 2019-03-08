@@ -7,10 +7,10 @@ afterEach(async () => {
 
 describe('insertAlbum()', () => {
     it('inserts the provided album into the db', async () => {
-        let album = await Albums.insertAlbum({name: "Vulnicura", release_year: 2015});
+        let album = await Albums.insertAlbum({name: "Volta", release_year: 2007});
 
-        expect(album.name).toBe("Vulnicura");
-        expect(album.release_year).toEqual(2015);
+        expect(album.name).toBe("Volta");
+        expect(album.release_year).toEqual(2007);
     })
 })
 
